@@ -6,7 +6,7 @@ endif()
 
 project(rawgl)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__SWITCH__ -DBYPASS_PROTECTION -DUSE_GL -O3 -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__SWITCH__ -DBYPASS_PROTECTION -DUSE_GL -DGLEW_NO_GLU -O3 -g")
 
 include_directories(
   ${DEVKITPRO}/portlibs/switch/include/SDL2
@@ -25,6 +25,7 @@ add_executable(${CMAKE_PROJECT_NAME}.elf
 target_link_libraries(${CMAKE_PROJECT_NAME}.elf
   SDL2_mixer
   SDL2
+  GLEW
   EGL
   glapi
   drm_nouveau
